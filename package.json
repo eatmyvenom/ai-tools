@@ -1,0 +1,17 @@
+{
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "eatmyvenom <eat.my.venomm@gmail.com",
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "prettier": "*"
+  },
+  "name": "ai-tools",
+  "packageManager": "yarn@4.0.0-rc.48",
+  "workspaces": [
+    "packages/*"
+  ]
+}
