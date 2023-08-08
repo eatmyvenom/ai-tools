@@ -1,16 +1,24 @@
 {
   "name": "@vai/openai",
   "main": "dist/index.js",
+  "types": "src/index.ts",
   "type": "module",
   "scripts": {
     "lint": "eslint src --ext .ts",
     "build": "swc src --config-file ../../.swcrc --out-dir dist"
   },
   "dependencies": {
+    "@vai/store": "workspace:^",
     "openai": "^3.3.0",
     "ts-json-schema-generator": "^1.2.0"
   },
   "exports": {
-    "#*": "./dist/*"
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "imports": {
+    "@vai/openai": "./dist/index.js"
   }
 }

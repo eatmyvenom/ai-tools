@@ -18,17 +18,18 @@
     "turbo": "^1.10.12",
     "typescript": "^5.1.6"
   },
-  "packageManager": "yarn@4.0.0-rc.48",
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
     "vlogger": "file:/home/eatmyvenom/code/logger"
   },
   "scripts": {
     "openai": "yarn workspace @vai/openai",
     "bing": "yarn workspace @vai/bing",
+    "store": "yarn workspace @vai/store",
     "build": "turbo build --parallel --cache-dir='.turbo'",
     "lint": "turbo lint"
-  }
+  },
+  "packageManager": "yarn@4.0.0-rc.48",
+  "workspaces": [
+    "packages/*"
+  ]
 }

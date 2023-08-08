@@ -1,4 +1,4 @@
-import { NoMessageResponseError } from "#errors";
+import { Utils, Errors } from "@vai/openai";
 import {
   ChatCompletionFunctions,
   ChatCompletionRequestMessage,
@@ -7,7 +7,6 @@ import {
   CreateChatCompletionRequest,
   OpenAIApi,
 } from "openai";
-import { getFunctions } from "#util";
 import { inspect } from "node:util";
 import { LoggerInstance } from "vlogger";
 
@@ -59,7 +58,7 @@ export class OpenAIChat {
     const newMsg = response.data.choices[0].message;
 
     if (newMsg === undefined) {
-      throw new NoMessageResponseError();
+      throw new Errors.NoMessageResponseError();
     }
 
     this.messages.push(newMsg);
@@ -140,7 +139,7 @@ export class OpenAIChat {
    * @param file The file to load functions from
    */
   public async addFunctionsFromFile(file: string) {
-    const functions = await getFunctions(file);
+    const functions = await Utils.getFunctions(file);
     this.addFunctions(functions as UsableFunction[]);
 
     return this;
