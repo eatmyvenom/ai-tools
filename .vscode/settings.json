@@ -19,6 +19,6 @@
     "*.jsx": "${capture}.js",
     "*.tsx": "${capture}.ts",
     "tsconfig.json": "tsconfig.*.json, .swcrc",
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .yarnrc.yml"
   }
 }

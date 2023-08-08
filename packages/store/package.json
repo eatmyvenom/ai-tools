@@ -1,0 +1,23 @@
+{
+  "name": "@vai/store",
+  "main": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "build": "swc src --config-file ../../.swcrc --out-dir dist"
+  },
+  "dependencies": {
+    "@typegoose/typegoose": "^11.4.1",
+    "mongoose": "^7.4.2",
+    "openai": "^3.3.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "imports": {
+    "@vai/store": "./dist/index.js"
+  }
+}

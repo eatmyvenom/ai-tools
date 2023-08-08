@@ -3,30 +3,20 @@ import {
   ChatCompletionFunctions,
   ChatCompletionRequestMessage,
   Configuration,
-  ConfigurationParameters,
-  CreateChatCompletionRequest,
   OpenAIApi,
 } from "openai";
 import { inspect } from "node:util";
 import { LoggerInstance } from "vlogger";
+import { OpenAIChatConfig, VAIChatMessage } from "@vai/store";
 
 type UsableFunction = ChatCompletionFunctions & {
   fn: (...args: any[]) => any;
 };
 
-interface OpenAIChatConfig {
-  openAIConfig: ConfigurationParameters;
-  chatConfig: Partial<CreateChatCompletionRequest> & {
-    model: string;
-    prompt?: string;
-  };
-  logLevel?: string;
-}
-
 export class OpenAIChat {
   private readonly config: OpenAIChatConfig;
   private openai: OpenAIApi;
-  public readonly messages: ChatCompletionRequestMessage[];
+  private messages: ChatCompletionRequestMessage[];
   public readonly functions: ChatCompletionFunctions[] = [];
   private callableFunctions: { [key: string]: (...args: any[]) => any } = {};
   private logger: LoggerInstance;
@@ -105,6 +95,19 @@ export class OpenAIChat {
       });
       this.callableFunctions[name] = fn;
     }
+
+    return this;
+  }
+
+  public addMessages(messages: VAIChatMessage[]) {
+    // TODO: Add a check to make sure the messages are valid
+    // TODO: Update in mongo when new messages are added
+
+    this.messages.push(
+      ...messages.map((msg) => {
+        return { ...msg, time: undefined };
+      }),
+    );
 
     return this;
   }
