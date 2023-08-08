@@ -5,9 +5,26 @@
 !.yarn/sdks
 !.yarn/versions
 
-# Swap the comments on the following lines if you wish to use zero-installs
-# In that case, don't forget to run `yarn config set enableGlobalCache false`!
-# Documentation here: https://yarnpkg.com/features/zero-installs
-
 #!.yarn/cache
 .pnp.*
+
+# nodejs
+node_modules
+npm-debug.log
+yarn-error.log
+
+# turbo
+.turbo
+
+# logs
+logs
+
+# env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# build artifacts
+dist

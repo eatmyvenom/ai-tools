@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "verbatimModuleSyntax": false,
+    "module": "NodeNext",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "strictPropertyInitialization": false,
+    "target": "ESNext",
+    "strict": true,
+    "declaration": true
+  },
+  "exclude": ["node_modules", "dist/**"],
+}
